@@ -1,0 +1,123 @@
+/*
+ * Copyright 2016-2018 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license.
+ */
+
+package kotlinx.coroutines
+
+import kotlinx.atomicfu.*
+import kotlinx.coroutines.internal.*
+import kotlin.coroutines.*
+
+private val DISPOSED_TASK = Symbol("REMOVED_TASK")
+
+// results for scheduleImpl
+private const val SCHEDULE_OK = 0
+private const val SCHEDULE_COMPLETED = 1
+private const val SCHEDULE_DISPOSED = 2
+
+private const val MS_TO_NS = 1_000_000L
+private const val MAX_MS = Long.MAX_VALUE / MS_TO_NS
+
+internal fun delayToNanos(timeMillis: Long): Long = when {
+    timeMillis <= 0 -> 0L
+    timeMillis >= MAX_MS -> Long.MAX_VALUE
+    else -> timeMillis * MS_TO_NS
+}
+
+internal fun delayNanosToMillis(timeNanos: Long): Long =
+    timeNanos / MS_TO_NS
+
+@Suppress("PrivatePropertyName")
+private val CLOSED_EMPTY = Symbol("CLOSED_EMPTY")
+
+private typealias Queue<T> = LockFreeTaskQueueCore<T>
+
+internal abstract class EventLoopImplBase: EventLoop(), Delay {
+    // null | CLOSED_EMPTY | task | Queue<Runnable>
+    private val _queue = atomic<Any?>(null)
+
+    // Allocated only only once
+    private val _delayed = atomic<ThreadSafeHeap<DelayedTask>?>(null)
+
+    protected abstract val thread: Thread
+
+    @Volatile
+    private var isCompleted = false
+
+    override val isEmpty: Boolean get() {
+        if (!isUnconfinedQueueEmpty) return false
+        val delayed = _delayed.value
+        if (delayed != null && !delayed.isEmpty) return false
+        val queue = _queue.value
+        return when (queue) {
+            null -> true
+            is Queue<*> -> queue.isEmpty
+            else -> queue === CLOSED_EMPTY
+        }
+    }
+
+    protected override val nextTime: Long
+        get() {
+            if (super.nextTime == 0L) return 0L 
+            val queue = _queue.value
+            when {
+                queue === null -> {} // empty queue -- proceed
+                queue is Queue<*> -> if (!queue.isEmpty) return 0 // non-empty queue
+                queue === CLOSED_EMPTY -> return Long.MAX_VALUE // no more events -- closed
+                else -> return 0 // non-empty queue
+            }
+            val delayed = _delayed.value ?: return Long.MAX_VALUE
+            val nextDelayedTask = delayed.peek() ?: return Long.MAX_VALUE
+            return (nextDelayedTask.nanoTime - timeSource.nanoTime()).coerceAtLeast(0)
+        }
+
+    private fun unpark() {
+        val thread = thread
+        if (Thread.currentThread() !== thread)
+            timeSource.unpark(thread)
+    }
+
+    override fun shutdown() {
+        // Clean up thread-local reference here -- this event loop is shutting down
+        ThreadLocalEventLoop.resetEventLoop()
+        // We should signal that this event loop should not accept any more tasks
+        // and process queued events (that could have been added after last processNextEvent)
+        isCompleted = true
+        closeQueue()
+        // complete processing of all queued tasks
+        while (processNextEvent() <= 0) { /* spin */ }
+        // reschedule the rest of delayed tasks
+        rescheduleAllDelayed()
+    }
+
+    override fun scheduleResumeAfterDelay(timeMillis: Long, continuation: CancellableContinuation<Unit>) =
+        schedule(DelayedResumeTask(timeMillis, continuation))
+
+    override fun processNextEvent(): Long {
+        // unconfined events take priority
+        if (processUnconfinedEvent()) return nextTime
+        // queue all delayed tasks that are due to be executed
+        val delayed = _delayed.value
+        if (delayed != null && !delayed.isEmpty) {
+            val now = timeSource.nanoTime()
+            while (true) {
+                // make sure that moving from delayed to queue removes from delayed only after it is added to queue
+                // to make sure that 'isEmpty' and `nextTime` that check both of them
+                // do not transiently report that both delayed and queue are empty during move
+                delayed.removeFirstIf {
+                    if (it.timeToExecute(now)) {
+                        enqueueImpl(it)
+                    } else
+                        false
+                } ?: break // quit loop when nothing more to remove or enqueueImpl returns false on "isComplete"
+            }
+        }
+        // then process one event from queue
+        dequeue()?.run()
+        return nextTime
+    }
+
+    public final override fun dispatch(context: CoroutineContext, block: Runnable) = enqueue(block)
+
+    public fun enqueue(task: Runnable) {
+        if (enqueue
