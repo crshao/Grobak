@@ -21,7 +21,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign In"
+                android:text="Welcome Back!"
                 android:fontFamily="@font/opensansextrabold"
                 android:textSize="20dp"
                 android:textColor="#7BED8D"
@@ -62,6 +62,31 @@
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
                         android:hint="Username"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:layout_margin="2dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_email_biruk_24dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:hint="Email"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
             <LinearLayout
@@ -120,24 +145,13 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Forgot Password?"
-                    android:fontFamily="@font/opensansextrabolditalic"
-                    android:gravity="center"
-                    android:layout_marginBottom="20dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:backgroundTint="#7BED8D"
-                    android:text="Sign In"
+                    android:text="Buat Akun!"
                     android:textColor="@color/white"
                     app:cornerRadius="10dp"/>
             </LinearLayout>
@@ -153,7 +167,7 @@
             android:fontFamily="@font/opensansextrabold"
             android:textSize="15sp"
             android:textColor="#7BED8D"
-            android:text="Create Account"
+            android:text="Sign in!"
             android:gravity="center"/>
     </LinearLayout>
 </LinearLayout>
