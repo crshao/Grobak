@@ -21,8 +21,7 @@ public class IntroActivity extends AppIntro {
 
         // Add your slide fragments here.
         // AppIntro will automatically generate the dots indicator and buttons.
-//        addSlide(FirstFragment);
-
+        addSlide(CustomFragment.newInstance(R.layout.fragment_first));
 //        addSlide(secondFragment);
 //        addSlide(thirdFragment);
 //        addSlide(fourthFragment);
@@ -30,15 +29,12 @@ public class IntroActivity extends AppIntro {
         // Instead of fragments, you can also use our default slide.
         // Just create a `SliderPage` and provide title, description, background and image.
         // AppIntro will do the rest.
-        SliderPage sliderPage1 = new SliderPage();
-        sliderPage1.setTitle("");
-        sliderPage1.setDescription(getString(R.string.intro1desc));
-        sliderPage1.setImageDrawable(R.drawable.fragment1);
-        sliderPage1.setBgColor(Color.parseColor("#FFFFFF"));
-        addSlide(AppIntroFragment.newInstance(sliderPage1));
-
-        SliderPage sliderPage2 = new SliderPage();
-        sliderPage2.setTitle("");
+//        SliderPage sliderPage1 = new SliderPage();
+//        sliderPage1.setTitle("");
+//        sliderPage1.setDescription(getString(R.string.intro1desc));
+//        sliderPage1.setImageDrawable(R.drawable.fragment1);
+//        sliderPage1.setBgColor(Color.parseColor("#FFFFFF"));
+//        addSlide(AppIntroFragment.newInstance(sliderPage1));
 
         // OPTIONAL METHODS
         // Override bar/separator color.
