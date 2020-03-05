@@ -6,8 +6,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.github.paolorotolo.appintro.AppIntro;
+import com.github.paolorotolo.appintro.AppIntroFragment;
 
 public class IntroActivity extends AppIntro {
+
+    AppIntroFragment FirstFragment = new AppIntroFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
