@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.example.grobak.R;
+import com.github.paolorotolo.appintro.AppIntroFragment;
 
 /**
  * A simple {@link Fragment} subclass.
