@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntroPage.SecondFragment">
+    android:background="@color/white"
+    android:gravity="center">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/tutorial_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="80dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:src="@drawable/fragment2"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="gambar2" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:id="@+id/tutorial_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:paddingLeft="64dp"
+        android:paddingRight="64dp"
+        android:paddingTop="64dp"
+        android:textSize="16sp"
+        android:text="Lengkapi komposisi untuk resep favoritmu hanya dengan satu klik"/>
 
-</FrameLayout>
+</LinearLayout>

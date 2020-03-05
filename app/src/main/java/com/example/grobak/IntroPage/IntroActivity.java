@@ -22,6 +22,7 @@ public class IntroActivity extends AppIntro {
         // Add your slide fragments here.
         // AppIntro will automatically generate the dots indicator and buttons.
         addSlide(CustomFragment.newInstance(R.layout.fragment_first));
+        addSlide(CustomFragment.newInstance(R.layout.fragment_second));
 //        addSlide(secondFragment);
 //        addSlide(thirdFragment);
 //        addSlide(fourthFragment);
@@ -42,7 +43,7 @@ public class IntroActivity extends AppIntro {
         setSeparatorColor(Color.parseColor("#2196F3"));
 
         // Hide Skip/Done button.
-        showSkipButton(false);
+        showSkipButton(true);
         showDoneButton(false);
 
         // Turn vibration on and set intensity.
