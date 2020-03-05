@@ -1,14 +1,11 @@
-package com.example.grobak;
+package com.example.grobak.IntroPage;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
 
 import com.github.paolorotolo.appintro.AppIntro;
-import com.github.paolorotolo.appintro.AppIntroFragment;
-import com.github.paolorotolo.appintro.model.SliderPage;
 
 public class IntroActivity extends AppIntro {
 
@@ -18,20 +15,21 @@ public class IntroActivity extends AppIntro {
 
         // Add your slide fragments here.
         // AppIntro will automatically generate the dots indicator and buttons.
-        addSlide(firstFragment);
-        addSlide(secondFragment);
-        addSlide(thirdFragment);
-        addSlide(fourthFragment);
+        addSlide(FirstFragment);
+
+//        addSlide(secondFragment);
+//        addSlide(thirdFragment);
+//        addSlide(fourthFragment);
 
         // Instead of fragments, you can also use our default slide.
         // Just create a `SliderPage` and provide title, description, background and image.
         // AppIntro will do the rest.
-        SliderPage sliderPage = new SliderPage();
-        sliderPage.setTitle(title);
-        sliderPage.setDescription(description);
-        sliderPage.setImageDrawable(image);
-        sliderPage.setBgColor(backgroundColor);
-        addSlide(AppIntroFragment.newInstance(sliderPage));
+//        SliderPage sliderPage = new SliderPage();
+//        sliderPage.setTitle(title);
+//        sliderPage.setDescription(description);
+//        sliderPage.setImageDrawable(image);
+//        sliderPage.setBgColor(backgroundColor);
+//        addSlide(AppIntroFragment.newInstance(sliderPage));
 
         // OPTIONAL METHODS
         // Override bar/separator color.
@@ -40,7 +38,7 @@ public class IntroActivity extends AppIntro {
 
         // Hide Skip/Done button.
         showSkipButton(false);
-        setButtonsEnabled(false);
+        showDoneButton(false);
 
         // Turn vibration on and set intensity.
         // NOTE: you will probably need to ask VIBRATE permission in Manifest.

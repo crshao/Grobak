@@ -10,4 +10,13 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="app_intro">AppIntro</string>
+    <string name="app_intro_skip_button">[Translation for SKIP]</string>
+    <string name="app_intro_next_button">[Translation for NEXT]</string>
+    <string name="app_intro_back_button">[Translation for BACK]</string>
+    <string name="app_intro_done_button">[Translation for DONE]</string>
+    <string name="app_intro_image_content_description">[Translation for "graphics"]</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="intro1desc">Belanja bahan makanan segar lebih cepat dan mudah</string>
 </resources>
