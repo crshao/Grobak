@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Navbar.Navbar">
+        <activity android:name=".Home"
+            android:exported="true"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".IntroPage.IntroActivity"
+            android:label="@string/app_intro" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +39,6 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true">
-        </activity>
     </application>
 
 </manifest>
