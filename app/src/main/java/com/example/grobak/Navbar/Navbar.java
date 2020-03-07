@@ -1,18 +1,16 @@
-package com.example.grobak;
+package com.example.grobak.Navbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class RegisterActivity extends AppCompatActivity {
+import com.example.grobak.R;
+
+public class Navbar extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-
-
+        setContentView(R.layout.activity_navbar);
     }
-
-
 }

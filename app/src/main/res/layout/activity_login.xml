@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
@@ -149,12 +150,15 @@
         android:layout_height="0dp"
         android:layout_weight="1">
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/create_account_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/opensansextrabold"
             android:textSize="15sp"
             android:textColor="#7BED8D"
             android:text="Create Account"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:onClick="onClick"
+            android:clickable="true"/>
     </LinearLayout>
 </LinearLayout>
