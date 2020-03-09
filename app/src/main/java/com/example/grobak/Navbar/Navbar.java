@@ -34,10 +34,16 @@ public class Navbar extends AppCompatActivity {
                     tag = "Home";
                     break;
                 case R.id.resep:
+                    fragment = new ResepFragment();
+                    tag = "Resep";
                     break;
                 case R.id.produk:
+                    fragment = new ProdukFragment();
+                    tag = "Produk";
                     break;
                 case R.id.menu:
+                    fragment = new MenuFragment();
+                    tag = "Menu";
                     break;
                 default:
                     break;
