@@ -1,4 +1,4 @@
-package com.example.grobak.RecyclerViews;
+package com.example.grobak;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,15 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.grobak.Data.BarangSatuan;
-import com.example.grobak.R;
 
 import java.util.ArrayList;
 
-public class HomeListItemRecycleAdapter extends RecyclerView.Adapter<HomeListItemRecycleAdapter.ViewHolder>{
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
     private static final String TAG = "RecycleView Called";
 
@@ -25,7 +23,7 @@ public class HomeListItemRecycleAdapter extends RecyclerView.Adapter<HomeListIte
     private ArrayList<BarangSatuan> mBarangSatuan = new ArrayList<>();
     private Context mContext;
 
-    public HomeListItemRecycleAdapter(Context mContext, ArrayList<BarangSatuan> mBarangSatuan) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<BarangSatuan> mBarangSatuan) {
         this.mBarangSatuan = mBarangSatuan;
         this.mContext = mContext;
     }
@@ -39,7 +37,7 @@ public class HomeListItemRecycleAdapter extends RecyclerView.Adapter<HomeListIte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomeListItemRecycleAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG,"OnBindViewHolderCalled : ");
 
         holder.namaBarang.setText(mBarangSatuan.get(position).getNama());
@@ -48,7 +46,6 @@ public class HomeListItemRecycleAdapter extends RecyclerView.Adapter<HomeListIte
         holder.image.setImageResource(mBarangSatuan.get(position).getImage());
 
     }
-
 
     @Override
     public int getItemCount() {
