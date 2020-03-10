@@ -91,7 +91,7 @@ public class Navbar extends AppCompatActivity {
         super.onStart();
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
     public Fragment getVisibleFragment() {

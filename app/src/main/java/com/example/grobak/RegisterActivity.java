@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.grobak.Navbar.Navbar;
@@ -41,6 +42,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @BindView(R.id.btn_buat_akun)
     MaterialButton btn_buat_akun;
+
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,17 +91,24 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+        progressBar.setVisibility(View.VISIBLE);
+
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful())
                 {
                     Toast.makeText(getApplicationContext(), "Pendaftaran Berhasil!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RegisterActivity.this, Navbar.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                 }
                 else
                 {
                     if(task.getException() instanceof FirebaseAuthUserCollisionException)
                     {
+
                         Toast.makeText(getApplicationContext(), "Alamat Email sudah terdaftar", Toast.LENGTH_SHORT).show();
                     }
                     else

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
@@ -37,13 +39,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
     static final int GOOGLE_SIGN_IN = 123;
-    ProgressBar progressBar;
 
     @BindView(R.id.email_layout)
     TextInputLayout txtEmail;
 
     @BindView(R.id.password_layout)
     TextInputLayout txtPassword;
+
+    @BindView(R.id.btn_sign_in)
+    MaterialButton btn_sign_in;
+
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -104,13 +111,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
+        progressBar.setVisibility(View.VISIBLE);
+
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful())
                 {
                     Intent intent = new Intent(LoginActivity.this, Navbar.class);
-
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                 }
                 else
                 {
@@ -125,8 +136,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onStart();
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        updateUI(currentUser);
     }
 
     @Override
@@ -194,6 +205,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    @OnClick(R.id.btn_sign_in)
+    void sign_in()
+    {
+        userLogin();
+    }
+
     @Override
     public void onClick(View v) {
         switch(v.getId())
@@ -206,6 +223,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intent);
                 finish();
                 break;
+//            case R.id.btn_sign_in:
+//                userLogin();
+//                break;
             default:
                 break;
         }
