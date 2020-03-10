@@ -5,19 +5,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.grobak.HomeFragments.DagingFragment;
+import com.example.grobak.HomeFragments.SayurFragment;
+import com.example.grobak.HomeFragments.SeafoodFragment;
+import com.example.grobak.HomeFragments.SectionPageAdapter;
 import com.example.grobak.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
 public class Navbar extends AppCompatActivity {
 
+    //TabLayout
+
+
+    //NavBar
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigationView;
 
@@ -59,6 +70,8 @@ public class Navbar extends AppCompatActivity {
         ButterKnife.bind(this);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFrag(null, new HomeFragment(), "Home");
+
+
     }
 
     public Fragment getVisibleFragment() {

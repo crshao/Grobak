@@ -12,47 +12,47 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.grobak.Data.BarangSatuan;
 import com.example.grobak.R;
 
 import java.util.ArrayList;
 
-public class HomeListItemRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class HomeListItemRecycleAdapter extends RecyclerView.Adapter<HomeListItemRecycleAdapter.ViewHolder>{
 
-    public static final String TAG = "RecyclerViewAdapter";
+    private static final String TAG = "RecycleView Called";
 
-    //vars
-    private ArrayList<String> mNamaBarang = new ArrayList<>();
-    private ArrayList<String> mKuantitas = new ArrayList<>();
-    private ArrayList<String> mHarga = new ArrayList<>();
-    private ArrayList<Integer> mImages = new ArrayList<>();
+    //Variabel
+    private ArrayList<BarangSatuan> mBarangSatuan = new ArrayList<>();
     private Context mContext;
 
-    public HomeListItemRecycleAdapter(ArrayList<String> mNamaBarang, ArrayList<String> mKuantitas, ArrayList<String> mHarga, ArrayList<Integer> mImages, Context mContext) {
-        this.mNamaBarang = mNamaBarang;
-        this.mKuantitas = mKuantitas;
-        this.mHarga = mHarga;
-        this.mImages = mImages;
+    public HomeListItemRecycleAdapter(Context mContext, ArrayList<BarangSatuan> mBarangSatuan) {
+        this.mBarangSatuan = mBarangSatuan;
         this.mContext = mContext;
     }
 
-
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d(TAG,"OnCreateViewHolder called");
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_semua_list_item,parent,false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_semua_list_item, parent, false);
         return new ViewHolder(view);
-    } // Each Individual Layout
-
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) { // Get the Data for each Individual Layout
-        Log.d(TAG,"OnBindViewHolder called");
-
     }
 
     @Override
+    public void onBindViewHolder(@NonNull HomeListItemRecycleAdapter.ViewHolder holder, int position) {
+        Log.d(TAG,"OnBindViewHolderCalled : ");
+
+        holder.namaBarang.setText(mBarangSatuan.get(position).getNama());
+        holder.kuantitas.setText(mBarangSatuan.get(position).getKuantitas());
+        holder.harga.setText(mBarangSatuan.get(position).getHarga());
+        holder.image.setImageResource(mBarangSatuan.get(position).getImage());
+
+    }
+
+
+    @Override
     public int getItemCount() {
-        return mNamaBarang.size();
+        return mBarangSatuan.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -68,5 +68,6 @@ public class HomeListItemRecycleAdapter extends RecyclerView.Adapter<RecyclerVie
             harga = itemView.findViewById(R.id.harga);
         }
     }
+
 
 }
