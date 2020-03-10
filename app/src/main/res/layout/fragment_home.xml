@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:background="@color/white"
-        android:weightSum="3"
         >
 
         <LinearLayout
@@ -75,7 +74,7 @@
             app:tabTextColor="@color/colorPrimary"/>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.github.paolorotolo.appintro.AppIntroViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
