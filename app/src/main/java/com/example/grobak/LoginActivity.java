@@ -2,10 +2,13 @@ package com.example.grobak;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.grobak.Navbar.Navbar;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -21,6 +25,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,6 +39,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     static final int GOOGLE_SIGN_IN = 123;
     ProgressBar progressBar;
 
+    @BindView(R.id.email_layout)
+    TextInputLayout txtEmail;
+
+    @BindView(R.id.password_layout)
+    TextInputLayout txtPassword;
+
     // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
@@ -44,6 +55,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -60,6 +72,54 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // [END initialize_auth]
     }
 
+    private void userLogin()
+    {
+        String email = txtEmail.getEditText().getText().toString().trim();
+        String password = txtPassword.getEditText().getText().toString().trim();
+
+        if(email.isEmpty())
+        {
+            txtEmail.getEditText().setError("Email harus diisi!");
+            txtEmail.getEditText().requestFocus();
+            return ;
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            txtEmail.setError("Mohon masukkan alamat email yang benar!");
+            txtEmail.getEditText().requestFocus();
+            return;
+        }
+
+        if(password.isEmpty())
+        {
+            txtPassword.getEditText().setError("Password harus diisi!");
+            txtPassword.getEditText().requestFocus();
+            return ;
+        }
+
+        if(password.length() < 6)
+        {
+            txtPassword.setError("Panjang minimal password adalah 6 karakter!");
+            txtPassword.getEditText().requestFocus();
+            return;
+        }
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful())
+                {
+                    Intent intent = new Intent(LoginActivity.this, Navbar.class);
+
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -67,7 +127,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // the GoogleSignInAccount will be non-null.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
-
     }
 
     @Override
@@ -139,12 +198,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch(v.getId())
         {
-            case R.id.sign_in_button:
+            case R.id.btn_sign_in_google:
                 signIn();
                 break;
             case R.id.create_account_button:
                 Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
+                finish();
                 break;
             default:
                 break;

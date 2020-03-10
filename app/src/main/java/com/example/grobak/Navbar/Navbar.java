@@ -20,13 +20,16 @@ import com.example.grobak.HomeFragments.SectionPageAdapter;
 import com.example.grobak.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
 public class Navbar extends AppCompatActivity {
+    private static final String TAG = "Navbar";
 
     //TabLayout
-
+    private FirebaseAuth mAuth;
 
     //NavBar
     @BindView(R.id.bottom_navigation)
@@ -70,8 +73,25 @@ public class Navbar extends AppCompatActivity {
         ButterKnife.bind(this);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFrag(null, new HomeFragment(), "Home");
+    }
 
+    public void checkCurrentUser() {
+        // [START check_current_user]
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // User is signed in
+        } else {
+            // No user is signed in
+        }
+        // [END check_current_user]
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Check for existing Google Sign In account, if the user is already signed in
+        // the GoogleSignInAccount will be non-null.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
     public Fragment getVisibleFragment() {

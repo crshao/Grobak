@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1060208162193-923qdu3rguq5d0uq97ilim66ka6spuhd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.grobak",
+            "certificate_hash": "beed7a022a03c8b71fdc82b438815e547a81e79b"
+          }
+        },
+        {
           "client_id": "1060208162193-r3mn6kctna1tgo547l9ujj8ct8ken572.apps.googleusercontent.com",
           "client_type": 3
         }
