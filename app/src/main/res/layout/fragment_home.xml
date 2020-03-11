@@ -50,6 +50,7 @@
                         android:layout_gravity="center"
                         android:clickable="true"
                         android:focusable="true"
+                        android:onClick="onClick"
                         android:src="@drawable/ic_shopping_cart_black_24dp" />
                 </LinearLayout>
             </LinearLayout>

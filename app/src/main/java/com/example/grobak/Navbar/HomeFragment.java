@@ -38,7 +38,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragment extends Fragment {
 
     private ArrayList<BarangSatuan> mBarangSatuan = new ArrayList<>();
 
@@ -61,6 +61,20 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         TabLayout tabLayout = view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("CART", "CART");
+                Toast.makeText(getContext(),"KETEKAN", Toast.LENGTH_SHORT).show();
+                Fragment fragment = new CartFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.navbar, fragment,"cart");
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        });
+
 //        //RecyclerView
 //        mBarangSatuan.addAll(DataDaging.getDataDaging());
 //
@@ -80,22 +94,22 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch(v.getId())
-        {
-            case R.id.btn_cart:
-                Log.d("CART", "CART");
-                Toast.makeText(getContext(),"KETEKAN", Toast.LENGTH_SHORT).show();
-                Fragment fragment = new CartFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.navbar, fragment,"cart");
-                ft.addToBackStack(null);
-                ft.commit();
-                break;
-            default:
-                break;
-        }
-    }
+//    @Override
+//    public void onClick(View view) {
+//        switch(view.getId())
+//        {
+//            case R.id.btn_cart:
+//                Log.d("CART", "CART");
+//                Toast.makeText(getContext(),"KETEKAN", Toast.LENGTH_SHORT).show();
+//                Fragment fragment = new CartFragment();
+//                FragmentManager fm = getActivity().getSupportFragmentManager();
+//                FragmentTransaction ft = fm.beginTransaction();
+//                ft.replace(R.id.navbar, fragment,"cart");
+//                ft.addToBackStack(null);
+//                ft.commit();
+//                break;
+//            default:
+//                break;
+//        }
+//    }
 }
