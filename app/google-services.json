@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "1060208162193",
-    "firebase_url": "https://grobak-9a655.firebaseio.com",
-    "project_id": "grobak-9a655",
-    "storage_bucket": "grobak-9a655.appspot.com"
+    "project_number": "1015819937922",
+    "firebase_url": "https://grobak-cbac7.firebaseio.com",
+    "project_id": "grobak-cbac7",
+    "storage_bucket": "grobak-cbac7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1060208162193:android:9a1624bc28b129e4201630",
+        "mobilesdk_app_id": "1:1015819937922:android:474eb8338f385c3f1e6c9b",
         "android_client_info": {
           "package_name": "com.example.grobak"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1060208162193-923qdu3rguq5d0uq97ilim66ka6spuhd.apps.googleusercontent.com",
+          "client_id": "1015819937922-6vogodegr6nnc8mb0e33t1pstccm2c0e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.grobak",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "1060208162193-r3mn6kctna1tgo547l9ujj8ct8ken572.apps.googleusercontent.com",
+          "client_id": "1015819937922-uvfh1ud1485a0fjvr2nnj6k20rui6umb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCAQx_uLwbzgNcs6l0SVTsHxJeozz2BH9w"
+          "current_key": "AIzaSyDm-EfzaJeYcCxhP6GqA_ifGae1OpyBI-U"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1060208162193-r3mn6kctna1tgo547l9ujj8ct8ken572.apps.googleusercontent.com",
+              "client_id": "1015819937922-uvfh1ud1485a0fjvr2nnj6k20rui6umb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

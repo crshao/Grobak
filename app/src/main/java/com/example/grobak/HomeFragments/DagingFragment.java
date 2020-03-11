@@ -33,16 +33,21 @@ public class DagingFragment extends Fragment {
 
     public static final String TAG = "DagingFragment";
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
         View view = inflater.inflate(R.layout.daging_fragment, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.recycleView);
+        RecyclerView recyclerView = view.findViewById(R.id.dagingRecyclerView);
         mBarangSatuan.addAll(DataDaging.getDataDaging());
 
-        final LinearLayoutManager layoutManager = new LinearLayoutManager();
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
 
