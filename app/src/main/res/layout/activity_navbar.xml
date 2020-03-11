@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Navbar.Navbar">
+    tools:context=".Navbar.Navbar"
+    android:id="@+id/navbar_layout">
     <FrameLayout
         android:id="@+id/navbar"
         android:layout_width="match_parent"

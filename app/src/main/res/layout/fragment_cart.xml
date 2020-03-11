@@ -21,11 +21,11 @@
             android:text="Cart"/>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="20dp">
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_background_all">
 
         <LinearLayout
             android:id="@+id/udang_jerbung"
@@ -38,19 +38,109 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="20dp"/>
-
             <TextView
                 android:id="@+id/tv_udang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Udang Jerbung"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginRight="30dp"/>
+            <TextView
+                android:id="@+id/tv_kuantitas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200g"
+                android:layout_gravity="center"
+                android:layout_marginRight="40dp"/>
+            <TextView
+                android:id="@+id/tv_harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Rp. 30.000"/>
         </LinearLayout>
+    </LinearLayout>
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/recycler_view"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_background_all">
+
+        <LinearLayout
+            android:id="@+id/ikan_kembung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/img_ikan"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:id="@+id/tv_ikan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ikan Tongkol"
+                android:layout_gravity="center"
+                android:layout_marginRight="30dp"/>
+            <TextView
+                android:id="@+id/tv_kuantitas_ikan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500g"
+                android:layout_gravity="center"
+                android:layout_marginRight="40dp"/>
+            <TextView
+                android:id="@+id/tv_harga_ikan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Rp. 18.000"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_background_all">
+
+        <LinearLayout
+            android:id="@+id/daging_sapi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/img_daging"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:id="@+id/tv_daging"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daging Sapi"
+                android:layout_gravity="center"
+                android:layout_marginRight="30dp"/>
+            <TextView
+                android:id="@+id/tv_kuantitas_daging"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300g"
+                android:layout_gravity="center"
+                android:layout_marginRight="40dp"/>
+            <TextView
+                android:id="@+id/tv_harga_daging"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Rp. 50.000"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

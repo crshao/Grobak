@@ -90,7 +90,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 Fragment fragment = new CartFragment();
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(R.id.cart_fragment, fragment,"cart");
+                ft.replace(R.id.navbar, fragment,"cart");
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
