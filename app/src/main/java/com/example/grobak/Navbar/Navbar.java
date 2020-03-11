@@ -12,6 +12,7 @@ import butterknife.ButterKnife;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.grobak.CartFragment;
 import com.example.grobak.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -54,6 +55,9 @@ public class Navbar extends AppCompatActivity {
                     fragment = new MenuFragment();
                     tag = "Menu";
                     break;
+                case R.id.btn_cart:
+                    fragment = new CartFragment();
+                    tag = "Cart";
                 default:
                     break;
             }
