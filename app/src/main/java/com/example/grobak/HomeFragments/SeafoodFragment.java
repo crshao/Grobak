@@ -29,6 +29,7 @@ public class SeafoodFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.seafood_fragment, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.seafoodRecyclerView);
         mBarangSatuan.addAll(DataSeafood.getDataSeafood());

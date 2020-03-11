@@ -26,9 +26,13 @@ import android.widget.Toast;
 import com.example.grobak.CartFragment;
 import com.example.grobak.Data.BarangSatuan;
 import com.example.grobak.Data.DataDaging;
+import com.example.grobak.Data.DataResep;
+import com.example.grobak.Data.Resep;
 import com.example.grobak.HomeFragments.ViewPagerAdapter;
+import com.example.grobak.HomeResepRecyclerViewAdapter;
 import com.example.grobak.R;
 import com.example.grobak.RecyclerViewAdapter;
+import com.example.grobak.WrapContentHeightViewPager;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 import com.google.android.material.tabs.TabLayout;
@@ -41,6 +45,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private ArrayList<BarangSatuan> mBarangSatuan = new ArrayList<>();
+    private ArrayList<Resep> mResep = new ArrayList<>();
 
     public HomeFragment() {
         // Required empty public constructor
@@ -53,13 +58,28 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         //View Pager
-        ViewPager viewPager = view.findViewById(R.id.view_pager);
+        WrapContentHeightViewPager viewPager = view.findViewById(R.id.view_pager);
         ImageView btnCart = (ImageView)view.findViewById(R.id.btn_cart);
 
         viewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager()));
         //TabLayout
         TabLayout tabLayout = view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        //RecyclerView
+        mResep.addAll(DataResep.getListData());
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.resepRecyclerView);
+        recyclerView.setLayoutManager(layoutManager);
+        HomeResepRecyclerViewAdapter adapter = new HomeResepRecyclerViewAdapter(mResep,getActivity());
+
+        //Item Decoration
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(),DividerItemDecoration.HORIZONTAL);
+        itemDecoration.setDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.divider));
+        recyclerView.addItemDecoration(itemDecoration);
+
+        recyclerView.setAdapter(adapter);
 
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override

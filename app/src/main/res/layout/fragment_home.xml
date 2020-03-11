@@ -111,13 +111,28 @@
                 app:tabTextColor="@color/colorPrimary"/>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_below="@+id/appBar"
+        <ScrollView
+            android:layout_below="@id/appBar"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"/>
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_below="@id/appBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.example.grobak.WrapContentHeightViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/resepRecyclerView"
+                    android:padding="8dp"
+                    android:layout_below="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
-
 
 
 

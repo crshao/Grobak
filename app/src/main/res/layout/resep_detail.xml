@@ -125,8 +125,7 @@
                 android:text="Nutritional Facts"
                 android:textSize="18dp"
                 android:fontFamily="@font/opensansbold"
-                android:textColor="@color/ijo"
-                android:layout_marginBottom="10dp"/>
+                android:textColor="@color/ijo"/>
             <LinearLayout
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
@@ -138,7 +137,8 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:weightSum="3">
+                android:weightSum="3"
+                android:layout_marginBottom="10dp">
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -215,9 +215,17 @@
                         android:textSize="30dp"
                         android:text="240"/>
                 </LinearLayout>
-
             </LinearLayout>
-
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/linkVideo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/ijo"
+                android:text="Tutorial!"
+                app:cornerRadius="12dp"
+                android:textSize="15sp"
+                android:fontFamily="@font/opensansbold"
+                android:layout_marginBottom="10dp"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

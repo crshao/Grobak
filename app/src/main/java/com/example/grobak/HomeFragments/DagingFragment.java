@@ -44,7 +44,7 @@ public class DagingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-
+        //Barang Satuan
         View view = inflater.inflate(R.layout.daging_fragment, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.dagingRecyclerView);
         mBarangSatuan.addAll(DataDaging.getDataDaging());
@@ -62,6 +62,8 @@ public class DagingFragment extends Fragment {
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(),mBarangSatuan);
         recyclerView.setAdapter(adapter);
+
+        //Resep
 
 
         return view;
