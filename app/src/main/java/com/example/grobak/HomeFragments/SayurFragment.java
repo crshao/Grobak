@@ -16,20 +16,40 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.grobak.Data.BarangSatuan;
 import com.example.grobak.Data.DataDaging;
 import com.example.grobak.Data.DataSayur;
+import com.example.grobak.Data.DataSeafood;
 import com.example.grobak.R;
 import com.example.grobak.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
 public class SayurFragment extends Fragment {
+
+    ArrayList<BarangSatuan> mBarangSatuan = new ArrayList<>();
     public static final String TAG = "SayurFragment";
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.sayur_fragment, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.sayurRecyclerView);
+        mBarangSatuan.addAll(DataSayur.getDataSayur());
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(layoutManager);
+
+
+        //Item Decoration
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(),DividerItemDecoration.HORIZONTAL);
+        itemDecoration.setDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.divider));
+        recyclerView.addItemDecoration(itemDecoration);
+
+
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(),mBarangSatuan);
+        recyclerView.setAdapter(adapter);
 
 
         return view;
+
     }
 }

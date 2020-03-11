@@ -61,11 +61,43 @@
                     android:layout_height="50dp"
                     android:background="@drawable/rounded_background_all"
                     android:elevation="5dp"
-                    android:layout_margin="5dp">
-                    <TextView
-                        android:layout_width="match_parent"
+                    android:layout_margin="5dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+                    <com.google.android.material.button.MaterialButton
+                        app:icon="@drawable/ic_account_balance_wallet_black_24dp"
+                        app:iconGravity="textStart"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:text="dor"/>
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:text="GrobakPay"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        app:iconTint="#7BED8D"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="0dp"
+                        android:backgroundTint="@color/white"
+
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:elevation="0dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        app:icon="@drawable/ic_attach_money_black_24dp"
+                        app:iconTint="#7BED8D"
+                        android:elevation="0dp"
+                        app:iconGravity="textStart"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:text="Rp. 650.000"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:textColor="#000000"
+                        app:strokeWidth="0dp"
+                        app:strokeColor="@color/white"
+                        android:layout_marginRight="5dp"
+                        android:backgroundTint="@color/white"/>
                 </LinearLayout>
             </LinearLayout>
 
