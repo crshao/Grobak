@@ -4,55 +4,59 @@ import com.example.grobak.R;
 
 import java.util.ArrayList;
 
-public class DataDaging extends BarangSatuan {
+public class DataSeafood extends BarangSatuan{
 
     private static String[] nama = {
-            "Tenderloin",
-            "T-Bone",
-            "Kambing",
-            "Paha Ayam",
-            "Sirloin",
-            "Chuck",
-            "Iga",
-            "Ayam Kampung",
-            "Telur Broiler"
+            "Mujair",
+            "Tuna",
+            "Bandeng",
+            "Tongkol",
+            "Ikan Teri",
+            "Kakap Merah",
+            "Kakap Putih",
+            "Udang Jerbung",
+            "Udang Pancet (25)",
+            "Ubur"
     };
 
     private static int[] image = {
-            R.drawable.tenderloin,
-            R.drawable.tbone,
-            R.drawable.kambing,
-            R.drawable.paha_ayam,
-            R.drawable.sirloin,
-            R.drawable.chuck,
-            R.drawable.iga,
-            R.drawable.ayam_kampung,
-            R.drawable.telur_ayam_broiler
+            R.drawable.mujair,
+            R.drawable.tuna,
+            R.drawable.bandeng,
+            R.drawable.tongkol,
+            R.drawable.teri,
+            R.drawable.kakap,
+            R.drawable.kakapputih,
+            R.drawable.jerbung,
+            R.drawable.udang_pancet,
+            R.drawable.ubur
     };
 
     private static String[] harga = {
-            "Rp. 40.000",
-            "Rp. 166.000",
-            "Rp. 62.500",
-            "Rp. 17.000",
+            "Rp. 30.000",
+            "Rp. 85.000",
+            "Rp. 35.000",
+            "Rp. 30.000",
+            "Rp. 25.000",
+            "Rp. 46.000",
+            "Rp. 67.000",
             "Rp. 60.000",
-            "Rp. 28.000",
-            "Rp. 47.000",
-            "Rp. 45.000",
-            "Rp. 28.000"
+            "Rp. 185.000",
+            "Rp. 29.000"
 
     };
 
     private static String[] kuantitas = {
+            "@1 Kg",
+            "@1 Kg",
+            "@1 Kg",
+            "@1 Kg",
+            "@300gr",
+            "@1 Kg",
+            "@1 Kg",
             "@500gr",
-            "@500gr",
-            "@500gr",
-            "@500gr",
-            "@500gr",
-            "@200gr",
-            "@500gr",
-            "1 Kg",
-            "1 Kg"
+            "@1 Kg",
+            "@275gr"
     };
 
 
@@ -70,16 +74,18 @@ public class DataDaging extends BarangSatuan {
 //        return dataDaging;
 //    }
 
-    public static ArrayList<BarangSatuan> getDataDaging() {
-        ArrayList<BarangSatuan> dataDaging = new ArrayList<>();
+    public static ArrayList<BarangSatuan> getDataSeafood() {
+        ArrayList<BarangSatuan> dataSeafood = new ArrayList<>();
         for (int i = 0; i < nama.length; i++) {
-            BarangSatuan barangSatuan = new DataDaging(); //Keknya ini salah, Klo misal Daging punya propoerti baru mana bisa dimasukin ke BarangSatuan?
+            BarangSatuan barangSatuan = new DataSeafood(); //Keknya ini salah, Klo misal Daging punya propoerti baru mana bisa dimasukin ke BarangSatuan?
             barangSatuan.setNama(nama[i]); // Tpi klo gk pake BarangSatuan, brarti tiap Fragment nanti harus buat Array baru sesuai dengan Fragment
             barangSatuan.setHarga(harga[i]);
             barangSatuan.setKuantitas(kuantitas[i]);
             barangSatuan.setImage(image[i]);
-            dataDaging.add(barangSatuan);
+            dataSeafood.add(barangSatuan);
         }
-        return dataDaging;
+        return dataSeafood;
     }
+
+
 }

@@ -28,7 +28,7 @@ public class BarangSatuan {
     }
 
     public void setHarga(String harga) {
-        harga = harga;
+        this.harga = harga;
     }
 
     public int getImage() {

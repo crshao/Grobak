@@ -34,6 +34,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_semua_list_item, parent, false);
         return new ViewHolder(view);
+
+
     }
 
     @Override
@@ -62,7 +64,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             image = itemView.findViewById(R.id.image);
             namaBarang = itemView.findViewById(R.id.namaBarang);
             kuantitas = itemView.findViewById(R.id.kuantitasBarang);
-            harga = itemView.findViewById(R.id.harga);
+            harga = itemView.findViewById(R.id.hargaMakanan);
         }
     }
 
