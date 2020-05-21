@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Navbar.ResepFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="INI FRAGMENT RESEP" />
+        <LinearLayout
+            android:id="@+id/Gambar"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:background="@drawable/rounded_background_bottom">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/rounded_background_bottom">
+                <ImageView
+                    android:id="@+id/fotoMakanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/dendeng"
+                    android:scaleType="fitXY"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="6dp"
+                    android:layout_alignParentBottom="true">
+                    <TextView
+                        android:id="@+id/namaResep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/opensansbold"
+                        android:textSize="32dp"
+                        android:text="Dendeng"/>
+                    <TextView
+                        android:layout_below="@id/namaResep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="Rekomendasi"
+                        android:fontFamily="@font/opensansbold"
+                        android:textColor="@color/ijo"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <!-- INI HARUSNYA NAVBAR TPI bingung lol -->
+        </LinearLayout>
+        
+        <ScrollView
+            android:layout_below="@+id/Gambar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:textAlignment="center"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:id="@+id/resepResepRecyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+        </ScrollView>
+        
 
-</FrameLayout>
+
+</RelativeLayout>
