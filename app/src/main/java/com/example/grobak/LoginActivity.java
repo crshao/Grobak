@@ -147,9 +147,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch(v.getId())
         {
-            case R.id.btn_sign_in_google:
-                signIn();
-                break;
+//            case R.id.btn_sign_in_google:
+//                signIn();
+//                break;
             case R.id.create_account_button:
                 Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);

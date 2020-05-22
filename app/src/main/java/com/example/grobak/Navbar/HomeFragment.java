@@ -85,7 +85,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d("CART", "CART");
-                Toast.makeText(getContext(),"KETEKAN", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(),"KETEKAN", Toast.LENGTH_SHORT).show();
                 Fragment fragment = new CartFragment();
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
@@ -113,23 +113,4 @@ public class HomeFragment extends Fragment {
         return view;
 
     }
-
-//    @Override
-//    public void onClick(View view) {
-//        switch(view.getId())
-//        {
-//            case R.id.btn_cart:
-//                Log.d("CART", "CART");
-//                Toast.makeText(getContext(),"KETEKAN", Toast.LENGTH_SHORT).show();
-//                Fragment fragment = new CartFragment();
-//                FragmentManager fm = getActivity().getSupportFragmentManager();
-//                FragmentTransaction ft = fm.beginTransaction();
-//                ft.replace(R.id.navbar, fragment,"cart");
-//                ft.addToBackStack(null);
-//                ft.commit();
-//                break;
-//            default:
-//                break;
-//        }
-//    }
 }

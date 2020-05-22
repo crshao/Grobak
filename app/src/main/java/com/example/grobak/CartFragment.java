@@ -7,10 +7,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.android.material.button.MaterialButton;
 
 
 /**
@@ -28,6 +32,7 @@ public class CartFragment extends Fragment {
 //    ImageView ikan;
 
 
+
     public CartFragment() {
         // Required empty public constructor
     }
@@ -36,8 +41,19 @@ public class CartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false);
+        View view = inflater.inflate(R.layout.fragment_cart, container, false);
+        MaterialButton btn_checkout = view.findViewById(R.id.btn_checkout);
+
+        btn_checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Checkout", "Checkout");
+                Toast.makeText(getContext(), "ke checkout", Toast.LENGTH_SHORT).show();
+                Fragment fragment = new
+            }
+        });
+
+        return view;
     }
 
     @Override
