@@ -3,12 +3,200 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Navbar.MenuFragment">
+    tools:context=".Navbar.MenuFragment"
+    android:padding="6dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="INI MENU FRAGMENT" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/profile"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Pogchamp"
+            android:textColor="@color/ijo"
+            android:fontFamily="@font/opensansbold"
+            android:textSize="32dp"
+            android:layout_marginBottom="30dp"/>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:weightSum="12">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_person_black_24dp" />
+            <TextView
+                android:layout_marginLeft="4dp"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Edit Profile"
+                android:fontFamily="@font/opensansregular"
+                android:textSize="20dp"
+                android:layout_weight="10"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_chevron_right_black_24dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="10dp"/>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="12"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_card_giftcard_black_24dp" />
+            <TextView
+                android:layout_marginLeft="4dp"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Hadiah"
+                android:fontFamily="@font/opensansregular"
+                android:textSize="20dp"
+                android:layout_weight="10"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_chevron_right_black_24dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="10dp"/>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="12"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_help_black_24dp" />
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Pusat Pantuan"
+                android:fontFamily="@font/opensansregular"
+                android:textSize="20dp"
+                android:layout_weight="10"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_chevron_right_black_24dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="10dp"/>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="12"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_settings_black_24dp" />
+            <TextView
+                android:layout_marginLeft="4dp"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:fontFamily="@font/opensansregular"
+                android:textSize="20dp"
+                android:layout_weight="10"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_chevron_right_black_24dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="10dp"/>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="12"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_power_settings_new_black_24dp" />
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="LogOut"
+                android:fontFamily="@font/opensansregular"
+                android:textSize="20dp"
+                android:layout_weight="10"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_chevron_right_black_24dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
 
 </FrameLayout>
