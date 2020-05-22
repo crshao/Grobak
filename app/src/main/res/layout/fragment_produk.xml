@@ -1,14 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Navbar.ProdukFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/Gambar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="INI FRAGMENT PRODUK" />
+        android:layout_height="350dp"
+        android:background="@drawable/rounded_background_bottom">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@drawable/rounded_background_bottom">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/fotoMakanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/broccoli"
+                    android:scaleType="fitXY"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/opensansbold"
+                        android:text="Dendeng"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:text="Rekomendasi"
+                        android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/opensansbold"/>
 
-</FrameLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+        <!-- INI HARUSNYA NAVBAR TPI bingung lol -->
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_below="@+id/Gambar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:id="@+id/produkProdukRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

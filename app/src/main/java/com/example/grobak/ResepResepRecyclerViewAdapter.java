@@ -18,11 +18,13 @@ import java.util.ArrayList;
 public class ResepResepRecyclerViewAdapter extends RecyclerView.Adapter<ResepResepRecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<Resep> mResep = new ArrayList<>();
+    private OnNoteListener mOnNoteListener;
     private Context mContext;
 
-    public ResepResepRecyclerViewAdapter(ArrayList<Resep> mBarangSatuan, Context mContext) {
+    public ResepResepRecyclerViewAdapter(ArrayList<Resep> mBarangSatuan, Context mContext,OnNoteListener onNoteListener) {
         this.mResep = mBarangSatuan;
         this.mContext = mContext;
+        this.mOnNoteListener = onNoteListener;
     }
 
 
@@ -30,7 +32,7 @@ public class ResepResepRecyclerViewAdapter extends RecyclerView.Adapter<ResepRes
     @Override
     public ResepResepRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.resep_resep_list_item, parent, false);
-        return new ResepResepRecyclerViewAdapter.ViewHolder(view);
+        return new ResepResepRecyclerViewAdapter.ViewHolder(view,mOnNoteListener);
     }
 
     @Override
@@ -45,25 +47,29 @@ public class ResepResepRecyclerViewAdapter extends RecyclerView.Adapter<ResepRes
         return mResep.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView image_resep;
         TextView namaResep;
         TextView deskripsiResep;
+        OnNoteListener onNoteListener;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView,OnNoteListener onNoteListener) {
             super(itemView);
             image_resep = itemView.findViewById(R.id.image);
             namaResep = itemView.findViewById(R.id.namaResep);
             deskripsiResep = itemView.findViewById((R.id.deskripsiResep));
-
-            itemView.setOnClickListener(v -> {
-                int pos = getAdapterPosition();
-                Resep resep = mResep.get(pos);
-                Toast.makeText(mContext,"Detail" + resep.getNama(),Toast.LENGTH_SHORT).show();
-            });
-
+            this.onNoteListener = onNoteListener;
+           itemView.setOnClickListener(this);
 
         }
+
+        @Override
+        public void onClick(View v) {
+            onNoteListener.OnNoteClick(getAdapterPosition());
+        }
+    }
+    public interface OnNoteListener{
+        void OnNoteClick(int position);
     }
 }
