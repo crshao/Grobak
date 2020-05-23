@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".CartFragment"
     android:id="@+id/cart_fragment">
+
     <LinearLayout
         android:id="@+id/cart"
         android:layout_width="match_parent"

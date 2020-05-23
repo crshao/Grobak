@@ -35,8 +35,6 @@ public class CartFragment extends Fragment {
 //    @BindView(R.id.img_ikan)
 //    ImageView ikan;
 
-
-
     public CartFragment() {
         // Required empty public constructor
     }
