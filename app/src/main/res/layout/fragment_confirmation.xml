@@ -3,12 +3,207 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ConfirmationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Ini Confirmation" />
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_background_all">
+
+            <LinearLayout
+                android:id="@+id/udang_jerbung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/img_udang"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="20dp"/>
+                <TextView
+                    android:id="@+id/tv_udang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Udang Jerbung"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="30dp"/>
+                <TextView
+                    android:id="@+id/tv_kuantitas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200g"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"/>
+                <TextView
+                    android:id="@+id/tv_harga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Rp. 15.500"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_background_all">
+
+            <LinearLayout
+                android:id="@+id/ikan_kembung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/img_ikan"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="20dp"/>
+                <TextView
+                    android:id="@+id/tv_ikan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ikan Tongkol"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="30dp"/>
+                <TextView
+                    android:id="@+id/tv_kuantitas_ikan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500g"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"/>
+                <TextView
+                    android:id="@+id/tv_harga_ikan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Rp. 10.000"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_background_all">
+
+            <LinearLayout
+                android:id="@+id/daging_sapi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/img_daging"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="20dp"/>
+                <TextView
+                    android:id="@+id/tv_daging"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daging Sapi"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="30dp"/>
+                <TextView
+                    android:id="@+id/tv_kuantitas_daging"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="300g"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"/>
+                <TextView
+                    android:id="@+id/tv_harga_daging"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Rp. 40.000"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_subtotal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+                <TextView
+                    android:id="@+id/tv_subtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sub-total"/>
+                <TextView
+                    android:id="@+id/tv_subtotal_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Rp.65.500"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relative_layout_total"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+                <TextView
+                    android:id="@+id/tv_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delivery"/>
+                <TextView
+                    android:id="@+id/tv_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Rp.10.000"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relative_layout_delivery"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="100dp">
+                <TextView
+                    android:id="@+id/tv_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/tv_delivery_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Rp.75.500"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+            </RelativeLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_place_order"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="#7BED8D"
+                android:text="Place order"
+                android:textColor="@color/white"
+                app:cornerRadius="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>

@@ -58,7 +58,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp. 15.500"/>
+                    android:text="Rp. 10.000"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textSize="20sp"
-                    android:text="Rp. 65.500"/>
+                    android:text="Rp. 75.500"/>
             </LinearLayout>
         </LinearLayout>
         <com.google.android.material.button.MaterialButton
