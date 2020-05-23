@@ -60,13 +60,13 @@ public class LocationFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         int index = 0;
 
-        final TextView textView = view.findViewById(R.id.header_text);
+        TextView textView = view.findViewById(R.id.header_text);
 
         if(getArguments() != null)
         {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
         }
 
-        textView.setText("Test");
+//        textView.setText(getString(R.string.test));
     }
 }
