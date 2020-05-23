@@ -29,7 +29,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ResepFragment extends Fragment implements ResepResepRecyclerViewAdapter.OnNoteListener {
+public class ResepFragment extends Fragment {
 
     private ArrayList<Resep> mResep = new ArrayList<>();
     public ResepFragment() {
@@ -47,7 +47,7 @@ public class ResepFragment extends Fragment implements ResepResepRecyclerViewAda
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.resepResepRecyclerView);
         recyclerView.setLayoutManager(layoutManager);
-        ResepResepRecyclerViewAdapter adapter = new ResepResepRecyclerViewAdapter(mResep,getActivity(), this);
+        ResepResepRecyclerViewAdapter adapter = new ResepResepRecyclerViewAdapter(mResep,getActivity());
 
         DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL);
         itemDecoration.setDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.divider_vertical  ));
@@ -58,19 +58,5 @@ public class ResepFragment extends Fragment implements ResepResepRecyclerViewAda
         return view;
     }
 
-    @Override
-    public void OnNoteClick(int position) {
-        Resep currResep = new Resep();
-        currResep = mResep.get(position);
-        Intent intent = new Intent(getActivity(), DetailResep.class);
-        Toast.makeText(getContext(),"dor",Toast.LENGTH_SHORT);
-        intent.putExtra("nama",currResep.getNama());
-        intent.putExtra("detail",currResep.getDetail());
-        intent.putExtra("bahan",currResep.getBahan());
-        intent.putExtra("image",currResep.getImage());
-        intent.putExtra("nutrition",currResep.getNut());
-        intent.putExtra("url",currResep.getUrl());
-        //startActivity(intent);
 
-    }
 }

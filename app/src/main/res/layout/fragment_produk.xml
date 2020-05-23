@@ -36,7 +36,7 @@
                         android:textSize="24dp"
                         android:textColor="@color/white"
                         android:fontFamily="@font/opensansbold"
-                        android:text="Dendeng"/>
+                        android:text="Brokoli"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

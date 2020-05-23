@@ -1,6 +1,7 @@
 package com.example.grobak;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +19,11 @@ import java.util.ArrayList;
 public class ResepResepRecyclerViewAdapter extends RecyclerView.Adapter<ResepResepRecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<Resep> mResep = new ArrayList<>();
-    private OnNoteListener mOnNoteListener;
     private Context mContext;
 
-    public ResepResepRecyclerViewAdapter(ArrayList<Resep> mBarangSatuan, Context mContext,OnNoteListener onNoteListener) {
+    public ResepResepRecyclerViewAdapter(ArrayList<Resep> mBarangSatuan, Context mContext) {
         this.mResep = mBarangSatuan;
         this.mContext = mContext;
-        this.mOnNoteListener = onNoteListener;
     }
 
 
@@ -32,7 +31,7 @@ public class ResepResepRecyclerViewAdapter extends RecyclerView.Adapter<ResepRes
     @Override
     public ResepResepRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.resep_resep_list_item, parent, false);
-        return new ResepResepRecyclerViewAdapter.ViewHolder(view,mOnNoteListener);
+        return new ResepResepRecyclerViewAdapter.ViewHolder(view);
     }
 
     @Override
@@ -47,29 +46,29 @@ public class ResepResepRecyclerViewAdapter extends RecyclerView.Adapter<ResepRes
         return mResep.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image_resep;
         TextView namaResep;
         TextView deskripsiResep;
-        OnNoteListener onNoteListener;
 
-        public ViewHolder(@NonNull View itemView,OnNoteListener onNoteListener) {
+
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image_resep = itemView.findViewById(R.id.image);
             namaResep = itemView.findViewById(R.id.namaResep);
             deskripsiResep = itemView.findViewById((R.id.deskripsiResep));
-            this.onNoteListener = onNoteListener;
-           itemView.setOnClickListener(this);
+            itemView.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    Intent intent = new Intent(v.getContext(),DetailResep.class);
+                    intent.putExtra("pos",pos);
+                    v.getContext().startActivity(intent);
+                }
+            });
 
         }
-
-        @Override
-        public void onClick(View v) {
-            onNoteListener.OnNoteClick(getAdapterPosition());
-        }
-    }
-    public interface OnNoteListener{
-        void OnNoteClick(int position);
     }
 }

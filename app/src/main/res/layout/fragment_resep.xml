@@ -21,7 +21,7 @@
                         android:id="@+id/fotoMakanan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/dendeng"
+                        android:background="@drawable/rendang"
                         android:scaleType="fitXY"/>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -35,13 +35,13 @@
                             android:textSize="24dp"
                             android:textColor="@color/white"
                             android:fontFamily="@font/opensansbold"
-                            android:text="Dendeng"/>
+                            android:text="Rendang"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="12dp"
                             android:text="Rekomendasi"
-                            android:textColor="@color/ijo"
+                            android:textColor="@color/white"
                             android:textAlignment="center"
                             android:fontFamily="@font/opensansbold"/>
 

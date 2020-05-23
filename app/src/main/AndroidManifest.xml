@@ -37,6 +37,7 @@
             android:name=".Navbar.Navbar"
             android:exported="true" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".DetailResep"/>
         <activity
             android:name=".IntroPage.IntroActivity"
             android:label="@string/app_intro" />
