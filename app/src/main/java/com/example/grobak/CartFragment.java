@@ -1,10 +1,14 @@
 package com.example.grobak;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
 
 import android.util.Log;
@@ -49,7 +53,14 @@ public class CartFragment extends Fragment {
             public void onClick(View v) {
                 Log.d("Checkout", "Checkout");
                 Toast.makeText(getContext(), "ke checkout", Toast.LENGTH_SHORT).show();
-                Fragment fragment = new
+//                Fragment fragment = new CheckoutFragment();
+//                FragmentManager fm = getActivity().getSupportFragmentManager();
+//                FragmentTransaction ft = fm.beginTransaction();
+//                ft.replace(R.id.navbar, fragment,"checkout");
+//                ft.addToBackStack(null);
+//                ft.commit();
+                Intent intent = new Intent(getActivity(), CheckoutActivity.class);
+                startActivity(intent);
             }
         });
 
